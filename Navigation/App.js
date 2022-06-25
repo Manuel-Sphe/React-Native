@@ -3,7 +3,8 @@ import { createStackNavigator } from "react-navigation-stack";
 
 import Home from "./Home";
 import Settings from "./Settings";
+import Details from "./Details";
 
 export default createAppContainer(
- createStackNavigator({ Home, Settings }, { initialRouteName: "Home" })
+ createStackNavigator({ Home, Details,Settings}, { initialRouteName: "Home" })
 );
