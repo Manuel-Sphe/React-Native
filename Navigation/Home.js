@@ -4,35 +4,55 @@ import styles from "./styles";
 
 
 // 
-export default function Home({ navigation }) {
+export default function Home({ navigation , screenProps:{stock}}) {
+
+    const val = Math.random()*100;
     return (
         <View style = {styles.container}>
             <Text>Home Page</Text>
-            <Button title="First Item" onPress={() => navigation.navigate("Details",{
+            <Button 
+                title={`First Item (${stock.first})`} 
+                onPress={() => navigation.navigate("Details",{
+                id:"first",
                 title:"First Item",
                 content:"First Item Content",
-                stock: 1
+          
                 })}
              /> 
 
-            <Button title="Second Item" onPress={() => navigation.navigate("Details",{
+            <Button 
+                title={`Second Item (${stock.second})`}
+                onPress={() => navigation.navigate("Details",{
+                id:"second",
                 title:"Second Item",
                 content:"Second Item Content",
-                stock: 0
+               
                 })}
             />
 
-            <Button title="Third Item" onPress={() => navigation.navigate("Details",{
+            
+            <Button 
+               // title = {<Text>Hhs</Text>}
+                title={`Third Item (${stock.third})`}
+                onPress={() => navigation.navigate("Details",{
+                id:"third",
                 title:"Third Item",
                 content:"Third Item Content",
-                stock:200
+            
                 })}
             />
-            <Button title="Settings" onPress={() => navigation.navigate("Settings")}/>
+
+            <View style = {styles.buttonContainer}>
+                <Button
+                color={'black'}
+                title="Settings" 
+                onPress={() => navigation.navigate("Settings")}/>
+            </View>
+           
         </View>
     );
 }
 
 Home.navigationOptions = {
-    title : "Home Page"
+    title : "Home"
 };
